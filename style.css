@@ -1,0 +1,74 @@
+﻿body {
+}
+
+#Cont {
+    display: flex;
+}
+
+#OyunCont {
+    width: 75%;
+}
+
+#SkorCont {
+    width: 25%;
+}
+
+.Dıvs {
+    border: solid 2px gray;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0 2px 0 2px;
+}
+
+#OyunAlan {
+    border: solid 0.5px gray;
+    border-radius: 4px;
+    margin: 0 2px 0 2px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 650px;
+    background-color: beige;
+    position: relative;
+}
+
+h3 {
+    margin: 0;
+    text-align: start;
+}
+
+.Oyuncular {
+    border: solid 1px white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 1;
+}
+
+.RandomEl {
+    border: solid 1px lightsteelblue;
+    border-radius: 50%;
+    position: absolute;
+    background-color: lightsteelblue;
+}
+
+#Oyuncu1 {
+    background-color: green;
+    top: 0px;
+    left: 0px;
+}
+
+#Oyuncu2 {
+    background-color: red;
+    bottom: 0px;
+    right: 0px;
+}
+
+#SifirlaBtn {
+    margin: 3px;
+    padding: 6px 8px 6px 8px;
+    font-size: medium;
+    border: solid 2px gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
