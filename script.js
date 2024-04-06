@@ -140,14 +140,16 @@ function ToplarCakisti(oyuncu) {
         var kosul = dikeyKosul && yatayKosul;
         if (kosul && !($(el).is(".Oyuncular"))) {
             var yeniAlan = AlanHesapla($(el).width());
-            $(oyuncu).css("width", CapHesapla(yeniAlan) + $(oyuncu).width() + "px");
-            $(oyuncu).css("height", CapHesapla(yeniAlan) + $(oyuncu).height() + "px");
+            var mevcutAlan = AlanHesapla($(oyuncu).width());
+            var sonCap = YeniBoyutHesapla(parseFloat(yeniAlan) + parseFloat(mevcutAlan));
+            $(oyuncu).css("width", sonCap + "px");
+            $(oyuncu).css("height", sonCap + "px");
             $(el).remove();
             RandomElementlerEkle(1, 1);
             if ($(oyuncu).is("#Oyuncu1"))
-                yesilHizi -= CapHesapla(yeniAlan).toFixed(2) / 45;
+                yesilHizi = 10 * (40 / sonCap);
             if ($(oyuncu).is("#Oyuncu2"))
-                kirmiziHizi -= CapHesapla(yeniAlan).toFixed(2) / 45;
+                kirmiziHizi = 10 * (40 / sonCap);
         }
         if (kosul && ($(oyuncu).is("#Oyuncu1") && $(el).is("#Oyuncu2") || $(oyuncu).is("#Oyuncu2") && $(el).is("#Oyuncu1"))) {
             if ($("#Oyuncu1").width() > $("#Oyuncu2").width()) {
@@ -173,9 +175,13 @@ function SkorGuncelle(skorElm, skor, kazananRenk, color) {
 function AlanHesapla(cap) {
     return (((cap / 2) ** 2) * 3.14).toFixed(2);
 }
+function YeniBoyutHesapla(alan) {
+    var cap = CapHesapla(alan);
+    return cap;
+}
 function CapHesapla(alan) {
     var cap = Math.sqrt((alan / 3.14));
-    return cap;
+    return cap*2;
 }
 function OynamayaDevamEt() {
     $("#OyunAlan").empty();
