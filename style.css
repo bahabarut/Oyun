@@ -87,7 +87,7 @@ h1 {
     margin: 0;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1600px) {
     #OyunAlan {
         min-height: 500px;
         position: relative;
