@@ -1,5 +1,6 @@
 var oyunDevamEdiyor = true;
 var interval = null;
+var hizSayac = 0;
 $(document).ready(function () {
     $("#Oyuncu1").attr("data-alan", AlanHesapla($("#Oyuncu1").width()));
     $("#Oyuncu2").attr("data-alan", AlanHesapla($("#Oyuncu2").width()));
@@ -23,7 +24,7 @@ function RandomUret(min, max) {
     return Math.floor(min + Math.random() * max);
 }
 function RandomElementlerEkle(min, max) {
-    const alan = $("#OyunAlan");
+    var alan = $("#OyunAlan");
     //ekrandaki nesnelerin sayisi
     var sayac = RandomUret(min, max);
     for (var i = 0; i < sayac; i++) {
@@ -65,7 +66,7 @@ function Baslat() {
         if (tuslar[38].basili && !tuslar[37].basili && !tuslar[39].basili) YeniKonumHesapla(oyuncu2, "yuk");
         if (tuslar[39].basili && !tuslar[38].basili && !tuslar[40].basili) YeniKonumHesapla(oyuncu2, "sag");
         if (tuslar[40].basili && !tuslar[37].basili && !tuslar[39].basili) YeniKonumHesapla(oyuncu2, "alt");
-    }, 10);
+    }, 20);
 }
 
 function YeniKonumHesapla(Oyuncu, Yon) {
@@ -75,26 +76,26 @@ function YeniKonumHesapla(Oyuncu, Yon) {
     var OyuncuKonumTop = Oyuncu.position().top;
 
     switch (Yon) {
-        case "sol": OyuncuKonumLeft -= 2; break;//sol a
-        case "yuk": OyuncuKonumTop -= 2; break;//yukari w
-        case "sag": OyuncuKonumLeft += 2; break;//sag d
-        case "alt": OyuncuKonumTop += 2; break;//asagi s
+        case "sol": OyuncuKonumLeft -= (5 - hizSayac); break;//sol a
+        case "yuk": OyuncuKonumTop -= (5 - hizSayac); break;//yukari w
+        case "sag": OyuncuKonumLeft += (5 - hizSayac); break;//sag d
+        case "alt": OyuncuKonumTop += (5 - hizSayac); break;//asagi s
 
         case "solyuk":
-            OyuncuKonumLeft -= 2;
-            OyuncuKonumTop -= 2;
+            OyuncuKonumLeft -= (5 - hizSayac);
+            OyuncuKonumTop -= (5 - hizSayac);
             break;
         case "solalt":
-            OyuncuKonumLeft -= 2;
-            OyuncuKonumTop += 2;
+            OyuncuKonumLeft -= (5 - hizSayac);
+            OyuncuKonumTop += (5 - hizSayac);
             break;
         case "sagyuk":
-            OyuncuKonumLeft += 2;
-            OyuncuKonumTop -= 2;
+            OyuncuKonumLeft += (5 - hizSayac);
+            OyuncuKonumTop -= (5 - hizSayac);
             break;
         case "sagalt":
-            OyuncuKonumLeft += 2;
-            OyuncuKonumTop += 2;
+            OyuncuKonumLeft += (5 - hizSayac);
+            OyuncuKonumTop += (5 - hizSayac);
             break;
     }
 
